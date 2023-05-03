@@ -16,6 +16,11 @@ basepath = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 basedir = os.path.dirname(os.path.abspath(basepath)) 
 
 def import_string(import_name):
+    """ this is pallets.werkzeug utils.
+        see: https://github.com/pallets/werkzeug/blob/main/src/werkzeug/utils.py
+
+        copied it since we only need this one function
+    """
     # might need to replace parts of name if its path/PosixPath
     try:
         __import__(import_name)
@@ -32,7 +37,9 @@ def import_string(import_name):
 
 
 class Config(dict):
-    """ dict-like class to hold key/value pairs for application configurations"""
+    """ dict-like class to hold key/value pairs for application configurations.
+        This is inspired by flask.config
+    """
 
     def __init__(self, root_path='') -> None:
         # root path could be PosixPath
@@ -42,7 +49,7 @@ class Config(dict):
 
     
     def from_json(self, file_path):
-        """ read the contents of a python file and parse its key/value pairs.
+        """ read the contents of a json file and parse its key/value pairs.
             be carefull with nested entries
         """
         pass
@@ -74,6 +81,7 @@ class Config(dict):
             if key.isupper():
                 value = getattr(obj, key)
                 self._set(key, value)
+
 
     def _set(self, key, value):
         """ set key/value pair.
