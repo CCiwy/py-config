@@ -1,6 +1,9 @@
-Parse Config from .py-Files.
+Py-config is a tool to create a configuration for your applications.
+store data in a dict-like obj from .py-files or json.
 
-#Usage
+values can be retrieved via config[key] or config.KEY
+
+# Usage
 copy/clone into your project directory
 
 example.py
@@ -26,8 +29,9 @@ print(app.config.EXAMPLE_VALUE)
 
 
 
-#Todo:
+# Todo:
 - [ ] parse more filetypes
     - [X] json
     - [ ] toml
     - [ ] ini
+    - [ ] env vars
