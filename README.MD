@@ -27,7 +27,7 @@ print(app.config.EXAMPLE_VALUE)
 
 
 #Todo:
-[ ] parse more filetypes
-    [ ] json
-    [ ] toml
-    [ ] ini
+- [ ] parse more filetypes
+    - [X] json
+    - [ ] toml
+    - [ ] ini
